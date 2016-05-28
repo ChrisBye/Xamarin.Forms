@@ -30,10 +30,13 @@ namespace Xamarin.Forms.Platform.iOS
 
 				ICellController cellController = _cell;
 
-				if (_cell != null)
+				if (cellController != null)
 					Device.BeginInvokeOnMainThread(cellController.SendDisappearing);
+				
 				_cell = value;
-				if (_cell != null)
+				cellController = _cell;
+
+				if (cellController != null)
 					Device.BeginInvokeOnMainThread(cellController.SendAppearing);
 			}
 		}
